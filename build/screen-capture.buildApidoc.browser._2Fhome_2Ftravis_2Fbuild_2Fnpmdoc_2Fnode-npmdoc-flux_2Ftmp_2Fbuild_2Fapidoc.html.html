@@ -1,0 +1,2037 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="http://facebook.github.io/flux/">flux (v3.1.2)</a>
+</h1>
+<h4>An application architecture based on a unidirectional data flow</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.flux">module flux</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.Dispatcher">
+            function <span class="apidocSignatureSpan">flux.</span>Dispatcher
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxContainerSubscriptions">
+            function <span class="apidocSignatureSpan">flux.</span>FluxContainerSubscriptions
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxReduceStore">
+            function <span class="apidocSignatureSpan">flux.</span>FluxReduceStore
+            <span class="apidocSignatureSpan">(dispatcher)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxStore">
+            function <span class="apidocSignatureSpan">flux.</span>FluxStore
+            <span class="apidocSignatureSpan">(dispatcher)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxStoreGroup">
+            function <span class="apidocSignatureSpan">flux.</span>FluxStoreGroup
+            <span class="apidocSignatureSpan">(stores, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">flux.</span>Dispatcher.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">flux.</span>FluxContainer</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">flux.</span>FluxContainerSubscriptions.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">flux.</span>FluxReduceStore.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">flux.</span>FluxStore.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">flux.</span>FluxStoreGroup.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">flux.</span>utils</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.flux.Dispatcher">module flux.Dispatcher</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.Dispatcher.Dispatcher">
+            function <span class="apidocSignatureSpan">flux.</span>Dispatcher
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.flux.Dispatcher.prototype">module flux.Dispatcher.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.Dispatcher.prototype._invokeCallback">
+            function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>_invokeCallback
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.Dispatcher.prototype._startDispatching">
+            function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>_startDispatching
+            <span class="apidocSignatureSpan">(payload)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.Dispatcher.prototype._stopDispatching">
+            function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>_stopDispatching
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.Dispatcher.prototype.dispatch">
+            function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>dispatch
+            <span class="apidocSignatureSpan">(payload)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.Dispatcher.prototype.isDispatching">
+            function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>isDispatching
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.Dispatcher.prototype.register">
+            function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>register
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.Dispatcher.prototype.unregister">
+            function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>unregister
+            <span class="apidocSignatureSpan">(id)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.Dispatcher.prototype.waitFor">
+            function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>waitFor
+            <span class="apidocSignatureSpan">(ids)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.flux.FluxContainer">module flux.FluxContainer</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxContainer.create">
+            function <span class="apidocSignatureSpan">flux.FluxContainer.</span>create
+            <span class="apidocSignatureSpan">(Base, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxContainer.createFunctional">
+            function <span class="apidocSignatureSpan">flux.FluxContainer.</span>createFunctional
+            <span class="apidocSignatureSpan">(viewFn, _getStores, _calculateState, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.flux.FluxContainerSubscriptions">module flux.FluxContainerSubscriptions</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxContainerSubscriptions.FluxContainerSubscriptions">
+            function <span class="apidocSignatureSpan">flux.</span>FluxContainerSubscriptions
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.flux.FluxContainerSubscriptions.prototype">module flux.FluxContainerSubscriptions.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxContainerSubscriptions.prototype._resetCallbacks">
+            function <span class="apidocSignatureSpan">flux.FluxContainerSubscriptions.prototype.</span>_resetCallbacks
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxContainerSubscriptions.prototype._resetStoreGroup">
+            function <span class="apidocSignatureSpan">flux.FluxContainerSubscriptions.prototype.</span>_resetStoreGroup
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxContainerSubscriptions.prototype._resetTokens">
+            function <span class="apidocSignatureSpan">flux.FluxContainerSubscriptions.prototype.</span>_resetTokens
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxContainerSubscriptions.prototype.addListener">
+            function <span class="apidocSignatureSpan">flux.FluxContainerSubscriptions.prototype.</span>addListener
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxContainerSubscriptions.prototype.reset">
+            function <span class="apidocSignatureSpan">flux.FluxContainerSubscriptions.prototype.</span>reset
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxContainerSubscriptions.prototype.setStores">
+            function <span class="apidocSignatureSpan">flux.FluxContainerSubscriptions.prototype.</span>setStores
+            <span class="apidocSignatureSpan">(stores)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.flux.FluxReduceStore">module flux.FluxReduceStore</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxReduceStore.FluxReduceStore">
+            function <span class="apidocSignatureSpan">flux.</span>FluxReduceStore
+            <span class="apidocSignatureSpan">(dispatcher)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.flux.FluxReduceStore.prototype">module flux.FluxReduceStore.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxReduceStore.prototype.__invokeOnDispatch">
+            function <span class="apidocSignatureSpan">flux.FluxReduceStore.prototype.</span>__invokeOnDispatch
+            <span class="apidocSignatureSpan">(action)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxReduceStore.prototype.areEqual">
+            function <span class="apidocSignatureSpan">flux.FluxReduceStore.prototype.</span>areEqual
+            <span class="apidocSignatureSpan">(one, two)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxReduceStore.prototype.getInitialState">
+            function <span class="apidocSignatureSpan">flux.FluxReduceStore.prototype.</span>getInitialState
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxReduceStore.prototype.getState">
+            function <span class="apidocSignatureSpan">flux.FluxReduceStore.prototype.</span>getState
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxReduceStore.prototype.reduce">
+            function <span class="apidocSignatureSpan">flux.FluxReduceStore.prototype.</span>reduce
+            <span class="apidocSignatureSpan">(state, action)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.flux.FluxStore">module flux.FluxStore</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxStore.FluxStore">
+            function <span class="apidocSignatureSpan">flux.</span>FluxStore
+            <span class="apidocSignatureSpan">(dispatcher)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.flux.FluxStore.prototype">module flux.FluxStore.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxStore.prototype.__emitChange">
+            function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>__emitChange
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxStore.prototype.__invokeOnDispatch">
+            function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>__invokeOnDispatch
+            <span class="apidocSignatureSpan">(payload)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxStore.prototype.__onDispatch">
+            function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>__onDispatch
+            <span class="apidocSignatureSpan">(payload)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxStore.prototype.addListener">
+            function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>addListener
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxStore.prototype.getDispatchToken">
+            function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>getDispatchToken
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxStore.prototype.getDispatcher">
+            function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>getDispatcher
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxStore.prototype.hasChanged">
+            function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>hasChanged
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.flux.FluxStoreGroup">module flux.FluxStoreGroup</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxStoreGroup.FluxStoreGroup">
+            function <span class="apidocSignatureSpan">flux.</span>FluxStoreGroup
+            <span class="apidocSignatureSpan">(stores, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.flux.FluxStoreGroup.prototype">module flux.FluxStoreGroup.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.FluxStoreGroup.prototype.release">
+            function <span class="apidocSignatureSpan">flux.FluxStoreGroup.prototype.</span>release
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.flux.utils">module flux.utils</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.utils.Mixin">
+            function <span class="apidocSignatureSpan">flux.utils.</span>Mixin
+            <span class="apidocSignatureSpan">(stores)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.utils.ReduceStore">
+            function <span class="apidocSignatureSpan">flux.utils.</span>ReduceStore
+            <span class="apidocSignatureSpan">(dispatcher)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.flux.utils.Store">
+            function <span class="apidocSignatureSpan">flux.utils.</span>Store
+            <span class="apidocSignatureSpan">(dispatcher)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">flux.utils.</span>Container</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.flux" id="apidoc.module.flux">module flux</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.flux.Dispatcher" id="apidoc.element.flux.Dispatcher">
+        function <span class="apidocSignatureSpan">flux.</span>Dispatcher
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Dispatcher() {
+  _classCallCheck(this, Dispatcher);
+
+  this._callbacks = {};
+  this._isDispatching = false;
+  this._isHandled = {};
+  this._isPending = {};
+  this._lastID = 1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxContainerSubscriptions" id="apidoc.element.flux.FluxContainerSubscriptions">
+        function <span class="apidocSignatureSpan">flux.</span>FluxContainerSubscriptions
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FluxContainerSubscriptions() {
+  _classCallCheck(this, FluxContainerSubscriptions);
+
+  this._callbacks = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxReduceStore" id="apidoc.element.flux.FluxReduceStore">
+        function <span class="apidocSignatureSpan">flux.</span>FluxReduceStore
+        <span class="apidocSignatureSpan">(dispatcher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FluxReduceStore(dispatcher) {
+  _classCallCheck(this, FluxReduceStore);
+
+  _FluxStore.call(this, dispatcher);
+  this._state = this.getInitialState();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxStore" id="apidoc.element.flux.FluxStore">
+        function <span class="apidocSignatureSpan">flux.</span>FluxStore
+        <span class="apidocSignatureSpan">(dispatcher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FluxStore(dispatcher) {
+  var _this = this;
+
+  _classCallCheck(this, FluxStore);
+
+  this.__className = this.constructor.name;
+
+  this.__changed = false;
+  this.__changeEvent = 'change';
+  this.__dispatcher = dispatcher;
+  this.__emitter = new EventEmitter();
+  this._dispatchToken = dispatcher.register(function (payload) {
+    _this.__invokeOnDispatch(payload);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxStoreGroup" id="apidoc.element.flux.FluxStoreGroup">
+        function <span class="apidocSignatureSpan">flux.</span>FluxStoreGroup
+        <span class="apidocSignatureSpan">(stores, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FluxStoreGroup(stores, callback) {
+  var _this = this;
+
+  _classCallCheck(this, FluxStoreGroup);
+
+  this._dispatcher = _getUniformDispatcher(stores);
+
+  // Precompute store tokens.
+  var storeTokens = stores.map(function (store) {
+    return store.getDispatchToken();
+  });
+
+  // Register with the dispatcher.
+  this._dispatchToken = this._dispatcher.register(function (payload) {
+    _this._dispatcher.waitFor(storeTokens);
+    callback();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.flux.Dispatcher" id="apidoc.module.flux.Dispatcher">module flux.Dispatcher</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.flux.Dispatcher.Dispatcher" id="apidoc.element.flux.Dispatcher.Dispatcher">
+        function <span class="apidocSignatureSpan">flux.</span>Dispatcher
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Dispatcher() {
+  _classCallCheck(this, Dispatcher);
+
+  this._callbacks = {};
+  this._isDispatching = false;
+  this._isHandled = {};
+  this._isPending = {};
+  this._lastID = 1;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.flux.Dispatcher.prototype" id="apidoc.module.flux.Dispatcher.prototype">module flux.Dispatcher.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.flux.Dispatcher.prototype._invokeCallback" id="apidoc.element.flux.Dispatcher.prototype._invokeCallback">
+        function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>_invokeCallback
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _invokeCallback(id) {
+  this._isPending[id] = true;
+  this._callbacks[id](this._pendingPayload);
+  this._isHandled[id] = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.Dispatcher.prototype._startDispatching" id="apidoc.element.flux.Dispatcher.prototype._startDispatching">
+        function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>_startDispatching
+        <span class="apidocSignatureSpan">(payload)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _startDispatching(payload) {
+  for (var id in this._callbacks) {
+    this._isPending[id] = false;
+    this._isHandled[id] = false;
+  }
+  this._pendingPayload = payload;
+  this._isDispatching = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.Dispatcher.prototype._stopDispatching" id="apidoc.element.flux.Dispatcher.prototype._stopDispatching">
+        function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>_stopDispatching
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _stopDispatching() {
+  delete this._pendingPayload;
+  this._isDispatching = false;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.Dispatcher.prototype.dispatch" id="apidoc.element.flux.Dispatcher.prototype.dispatch">
+        function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>dispatch
+        <span class="apidocSignatureSpan">(payload)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function dispatch(payload) {
+  !!this._isDispatching ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatch.dispatch(...): Cannot dispatch in the
+ middle of a dispatch.') : invariant(false) : undefined;
+  this._startDispatching(payload);
+  try {
+    for (var id in this._callbacks) {
+      if (this._isPending[id]) {
+        continue;
+      }
+      this._invokeCallback(id);
+    }
+  } finally {
+    this._stopDispatching();
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.Dispatcher.prototype.isDispatching" id="apidoc.element.flux.Dispatcher.prototype.isDispatching">
+        function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>isDispatching
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function isDispatching() {
+  return this._isDispatching;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+/**
+ * Returns whether the store has changed during the most recent dispatch.
+ */
+
+FluxStore.prototype.hasChanged = function hasChanged() {
+  !this.__dispatcher.<span class="apidocCodeKeywordSpan">isDispatching</span>() ? process.env.NODE_ENV !== 'production'
+; ? invariant(false, '%s.hasChanged(): Must be invoked while dispatching.', this.__className) : invariant(false) : undefined
+;
+  return this.__changed;
+};
+
+FluxStore.prototype.__emitChange = function __emitChange() {
+  !this.__dispatcher.isDispatching() ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.__emitChange():
+Must be invoked while dispatching.', this.__className) : invariant(false) : undefined;
+  this.__changed = true;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.Dispatcher.prototype.register" id="apidoc.element.flux.Dispatcher.prototype.register">
+        function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>register
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function register(callback) {
+  var id = _prefix + this._lastID++;
+  this._callbacks[id] = callback;
+  return id;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  this.__className = this.constructor.name;
+
+  this.__changed = false;
+  this.__changeEvent = 'change';
+  this.__dispatcher = dispatcher;
+  this.__emitter = new EventEmitter();
+  this._dispatchToken = dispatcher.<span class="apidocCodeKeywordSpan">register</span>(function (payload) {
+    _this.__invokeOnDispatch(payload);
+  });
+}
+
+FluxStore.prototype.addListener = function addListener(callback) {
+  return this.__emitter.addListener(this.__changeEvent, callback);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.Dispatcher.prototype.unregister" id="apidoc.element.flux.Dispatcher.prototype.unregister">
+        function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>unregister
+        <span class="apidocSignatureSpan">(id)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function unregister(id) {
+  !this._callbacks[id] ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatcher.unregister(...): `%s` does not map
+ to a registered callback.', id) : invariant(false) : undefined;
+  delete this._callbacks[id];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this._dispatchToken = this._dispatcher.register(function (payload) {
+    _this._dispatcher.waitFor(storeTokens);
+    callback();
+  });
+}
+
+FluxStoreGroup.prototype.release = function release() {
+  this._dispatcher.<span class="apidocCodeKeywordSpan">unregister</span>(this._dispatchToken);
+};
+
+return FluxStoreGroup;
+})();
+
+function _getUniformDispatcher(stores) {
+!(stores &amp;&amp; stores.length) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Must provide at
+least one store to FluxStoreGroup') : invariant(false) : undefined;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.Dispatcher.prototype.waitFor" id="apidoc.element.flux.Dispatcher.prototype.waitFor">
+        function <span class="apidocSignatureSpan">flux.Dispatcher.prototype.</span>waitFor
+        <span class="apidocSignatureSpan">(ids)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function waitFor(ids) {
+  !this._isDispatching ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatcher.waitFor(...): Must be invoked while
+ dispatching.') : invariant(false) : undefined;
+  for (var ii = 0; ii &lt; ids.length; ii++) {
+    var id = ids[ii];
+    if (this._isPending[id]) {
+      !this._isHandled[id] ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatcher.waitFor(...): Circular dependency
+ detected while ' + 'waiting for `%s`.', id) : invariant(false) : undefined;
+      continue;
+    }
+    !this._callbacks[id] ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Dispatcher.waitFor(...): `%s` does not map
+to a registered callback.', id) : invariant(false) : undefined;
+    this._invokeCallback(id);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // Precompute store tokens.
+  var storeTokens = stores.map(function (store) {
+    return store.getDispatchToken();
+  });
+
+  // Register with the dispatcher.
+  this._dispatchToken = this._dispatcher.register(function (payload) {
+    _this._dispatcher.<span class="apidocCodeKeywordSpan">waitFor</span>(storeTokens);
+    callback();
+  });
+}
+
+FluxStoreGroup.prototype.release = function release() {
+  this._dispatcher.unregister(this._dispatchToken);
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.flux.FluxContainer" id="apidoc.module.flux.FluxContainer">module flux.FluxContainer</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxContainer.create" id="apidoc.element.flux.FluxContainer.create">
+        function <span class="apidocSignatureSpan">flux.FluxContainer.</span>create
+        <span class="apidocSignatureSpan">(Base, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function create(Base, options) {
+  enforceInterface(Base);
+
+  // Construct the options using default, override with user values as necessary.
+  var realOptions = _extends({}, DEFAULT_OPTIONS, options || {});
+
+  var getState = function (state, maybeProps, maybeContext) {
+    var props = realOptions.withProps ? maybeProps : undefined;
+    var context = realOptions.withContext ? maybeContext : undefined;
+    return Base.calculateState(state, props, context);
+  };
+
+  var getStores = function (maybeProps, maybeContext) {
+    var props = realOptions.withProps ? maybeProps : undefined;
+    var context = realOptions.withContext ? maybeContext : undefined;
+    return Base.getStores(props, context);
+  };
+
+  // Build the container class.
+
+  var ContainerClass = (function (_Base) {
+    _inherits(ContainerClass, _Base);
+
+    function ContainerClass(props, context) {
+      var _this = this;
+
+      _classCallCheck(this, ContainerClass);
+
+      _Base.call(this, props, context);
+      this._fluxContainerSubscriptions = new FluxContainerSubscriptions();
+      this._fluxContainerSubscriptions.setStores(getStores(props));
+      this._fluxContainerSubscriptions.addListener(function () {
+        _this.setState(function (prevState, currentProps) {
+          return getState(prevState, currentProps, context);
+        });
+      });
+      var calculatedState = getState(undefined, props, context);
+      this.state = _extends({}, this.state || {}, calculatedState);
+    }
+
+    // Make sure we override shouldComponentUpdate only if the pure option is
+    // specified. We can't override this above because we don't want to override
+    // the default behavior on accident. Super works weird with react ES6 classes.
+
+    ContainerClass.prototype.componentWillReceiveProps = function componentWillReceiveProps(nextProps, nextContext) {
+      if (_Base.prototype.componentWillReceiveProps) {
+        _Base.prototype.componentWillReceiveProps.call(this, nextProps, nextContext);
+      }
+
+      if (realOptions.withProps || realOptions.withContext) {
+        // Update both stores and state.
+        this._fluxContainerSubscriptions.setStores(getStores(nextProps, nextContext));
+        this.setState(function (prevState) {
+          return getState(prevState, nextProps, nextContext);
+        });
+      }
+    };
+
+    ContainerClass.prototype.componentWillUnmount = function componentWillUnmount() {
+      if (_Base.prototype.componentWillUnmount) {
+        _Base.prototype.componentWillUnmount.call(this);
+      }
+
+      this._fluxContainerSubscriptions.reset();
+    };
+
+    return ContainerClass;
+  })(Base);
+
+  var container = realOptions.pure ? createPureComponent(ContainerClass) : ContainerClass;
+
+  // Update the name of the container before returning
+  var componentName = Base.displayName || Base.name;
+  container.displayName = 'FluxContainer(' + componentName + ')';
+  return container;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+'use strict';
+
+var _extends = Object.assign || function (target) { for (var i = 1; i &lt; arguments.length; i++) { var source = arguments[i];
+for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target
+; };
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call
+ a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' &amp;&amp; superClass !== null) { throw
+ new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype =
+Object.<span class="apidocCodeKeywordSpan">create</span>(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass
+, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass
+, superClass) : subClass.__proto__ = superClass; }
+
+var FluxContainerSubscriptions = require('./FluxContainerSubscriptions');
+var React = require('react');
+
+var invariant = require('fbjs/lib/invariant');
+var shallowEqual = require('fbjs/lib/shallowEqual');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxContainer.createFunctional" id="apidoc.element.flux.FluxContainer.createFunctional">
+        function <span class="apidocSignatureSpan">flux.FluxContainer.</span>createFunctional
+        <span class="apidocSignatureSpan">(viewFn, _getStores, _calculateState, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function createFunctional(viewFn, _getStores, _calculateState, options) {
+  var FunctionalContainer = (function (_Component) {
+    _inherits(FunctionalContainer, _Component);
+
+    function FunctionalContainer() {
+      _classCallCheck(this, FunctionalContainer);
+
+      _Component.apply(this, arguments);
+    }
+
+    // Update the name of the component before creating the container.
+
+    FunctionalContainer.getStores = function getStores(props, context) {
+      return _getStores(props, context);
+    };
+
+    FunctionalContainer.calculateState = function calculateState(prevState, props, context) {
+      return _calculateState(prevState, props, context);
+    };
+
+    FunctionalContainer.prototype.render = function render() {
+      return viewFn(this.state);
+    };
+
+    return FunctionalContainer;
+  })(Component);
+
+  var viewFnName = viewFn.displayName || viewFn.name || 'FunctionalContainer';
+  FunctionalContainer.displayName = viewFnName;
+  return create(FunctionalContainer, options);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ *
+ *   function calculateState() {
+ *     return {
+ *       value: FooStore.getState();
+ *     };
+ *   }
+ *
+ *   module.exports = FluxContainer.<span class="apidocCodeKeywordSpan">createFunctional</span>(
+ *     FooView,
+ *     getStores,
+ *     calculateState,
+ *   );
+ *
+ */
+function createFunctional(viewFn, _getStores, _calculateState, options) {
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.flux.FluxContainerSubscriptions" id="apidoc.module.flux.FluxContainerSubscriptions">module flux.FluxContainerSubscriptions</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxContainerSubscriptions.FluxContainerSubscriptions" id="apidoc.element.flux.FluxContainerSubscriptions.FluxContainerSubscriptions">
+        function <span class="apidocSignatureSpan">flux.</span>FluxContainerSubscriptions
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FluxContainerSubscriptions() {
+  _classCallCheck(this, FluxContainerSubscriptions);
+
+  this._callbacks = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.flux.FluxContainerSubscriptions.prototype" id="apidoc.module.flux.FluxContainerSubscriptions.prototype">module flux.FluxContainerSubscriptions.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxContainerSubscriptions.prototype._resetCallbacks" id="apidoc.element.flux.FluxContainerSubscriptions.prototype._resetCallbacks">
+        function <span class="apidocSignatureSpan">flux.FluxContainerSubscriptions.prototype.</span>_resetCallbacks
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _resetCallbacks() {
+  this._callbacks = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+FluxContainerSubscriptions.prototype.addListener = function addListener(fn) {
+  this._callbacks.push(fn);
+};
+
+FluxContainerSubscriptions.prototype.reset = function reset() {
+  this._resetTokens();
+  this._resetStoreGroup();
+  this.<span class="apidocCodeKeywordSpan">_resetCallbacks</span>();
+};
+
+FluxContainerSubscriptions.prototype._resetTokens = function _resetTokens() {
+  if (this._tokens) {
+    this._tokens.forEach(function (token) {
+      return token.remove();
+    });
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxContainerSubscriptions.prototype._resetStoreGroup" id="apidoc.element.flux.FluxContainerSubscriptions.prototype._resetStoreGroup">
+        function <span class="apidocSignatureSpan">flux.FluxContainerSubscriptions.prototype.</span>_resetStoreGroup
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _resetStoreGroup() {
+  if (this._storeGroup) {
+    this._storeGroup.release();
+    this._storeGroup = null;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+this._callbacks = [];
+  }
+
+  FluxContainerSubscriptions.prototype.setStores = function setStores(stores) {
+var _this = this;
+
+this._resetTokens();
+this.<span class="apidocCodeKeywordSpan">_resetStoreGroup</span>();
+
+var changed = false;
+var changedStores = [];
+
+if (process.env.NODE_ENV !== 'production') {
+  // Keep track of the stores that changed for debugging purposes only
+  this._tokens = stores.map(function (store) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxContainerSubscriptions.prototype._resetTokens" id="apidoc.element.flux.FluxContainerSubscriptions.prototype._resetTokens">
+        function <span class="apidocSignatureSpan">flux.FluxContainerSubscriptions.prototype.</span>_resetTokens
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _resetTokens() {
+  if (this._tokens) {
+    this._tokens.forEach(function (token) {
+      return token.remove();
+    });
+    this._tokens = null;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+this._callbacks = [];
+  }
+
+  FluxContainerSubscriptions.prototype.setStores = function setStores(stores) {
+var _this = this;
+
+this.<span class="apidocCodeKeywordSpan">_resetTokens</span>();
+this._resetStoreGroup();
+
+var changed = false;
+var changedStores = [];
+
+if (process.env.NODE_ENV !== 'production') {
+  // Keep track of the stores that changed for debugging purposes only
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxContainerSubscriptions.prototype.addListener" id="apidoc.element.flux.FluxContainerSubscriptions.prototype.addListener">
+        function <span class="apidocSignatureSpan">flux.FluxContainerSubscriptions.prototype.</span>addListener
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addListener(fn) {
+  this._callbacks.push(fn);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var _this = this;
+
+  _classCallCheck(this, ContainerClass);
+
+  _Base.call(this, props, context);
+  this._fluxContainerSubscriptions = new FluxContainerSubscriptions();
+  this._fluxContainerSubscriptions.setStores(getStores(props));
+  this._fluxContainerSubscriptions.<span class="apidocCodeKeywordSpan">addListener</span>(function () {
+    _this.setState(function (prevState, currentProps) {
+      return getState(prevState, currentProps, context);
+    });
+  });
+  var calculatedState = getState(undefined, props, context);
+  this.state = _extends({}, this.state || {}, calculatedState);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxContainerSubscriptions.prototype.reset" id="apidoc.element.flux.FluxContainerSubscriptions.prototype.reset">
+        function <span class="apidocSignatureSpan">flux.FluxContainerSubscriptions.prototype.</span>reset
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function reset() {
+  this._resetTokens();
+  this._resetStoreGroup();
+  this._resetCallbacks();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  };
+
+  ContainerClass.prototype.componentWillUnmount = function componentWillUnmount() {
+    if (_Base.prototype.componentWillUnmount) {
+      _Base.prototype.componentWillUnmount.call(this);
+    }
+
+    this._fluxContainerSubscriptions.<span class="apidocCodeKeywordSpan">reset</span>();
+  };
+
+  return ContainerClass;
+})(Base);
+
+var container = realOptions.pure ? createPureComponent(ContainerClass) : ContainerClass;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxContainerSubscriptions.prototype.setStores" id="apidoc.element.flux.FluxContainerSubscriptions.prototype.setStores">
+        function <span class="apidocSignatureSpan">flux.FluxContainerSubscriptions.prototype.</span>setStores
+        <span class="apidocSignatureSpan">(stores)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function setStores(stores) {
+  var _this = this;
+
+  this._resetTokens();
+  this._resetStoreGroup();
+
+  var changed = false;
+  var changedStores = [];
+
+  if (process.env.NODE_ENV !== 'production') {
+    // Keep track of the stores that changed for debugging purposes only
+    this._tokens = stores.map(function (store) {
+      return store.addListener(function () {
+        changed = true;
+        changedStores.push(store);
+      });
+    });
+  } else {
+    (function () {
+      var setChanged = function () {
+        changed = true;
+      };
+      _this._tokens = stores.map(function (store) {
+        return store.addListener(setChanged);
+      });
+    })();
+  }
+
+  var callCallbacks = function () {
+    if (changed) {
+      _this._callbacks.forEach(function (fn) {
+        return fn();
+      });
+      changed = false;
+      if (process.env.NODE_ENV !== 'production') {
+        // Uncomment this to print the stores that changed.
+        // console.log(changedStores);
+        changedStores = [];
+      }
+    }
+  };
+  this._storeGroup = new FluxStoreGroup(stores, callCallbacks);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    function ContainerClass(props, context) {
+var _this = this;
+
+_classCallCheck(this, ContainerClass);
+
+_Base.call(this, props, context);
+this._fluxContainerSubscriptions = new FluxContainerSubscriptions();
+this._fluxContainerSubscriptions.<span class="apidocCodeKeywordSpan">setStores</span>(getStores(props));
+this._fluxContainerSubscriptions.addListener(function () {
+  _this.setState(function (prevState, currentProps) {
+    return getState(prevState, currentProps, context);
+  });
+});
+var calculatedState = getState(undefined, props, context);
+this.state = _extends({}, this.state || {}, calculatedState);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.flux.FluxReduceStore" id="apidoc.module.flux.FluxReduceStore">module flux.FluxReduceStore</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxReduceStore.FluxReduceStore" id="apidoc.element.flux.FluxReduceStore.FluxReduceStore">
+        function <span class="apidocSignatureSpan">flux.</span>FluxReduceStore
+        <span class="apidocSignatureSpan">(dispatcher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FluxReduceStore(dispatcher) {
+  _classCallCheck(this, FluxReduceStore);
+
+  _FluxStore.call(this, dispatcher);
+  this._state = this.getInitialState();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.flux.FluxReduceStore.prototype" id="apidoc.module.flux.FluxReduceStore.prototype">module flux.FluxReduceStore.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxReduceStore.prototype.__invokeOnDispatch" id="apidoc.element.flux.FluxReduceStore.prototype.__invokeOnDispatch">
+        function <span class="apidocSignatureSpan">flux.FluxReduceStore.prototype.</span>__invokeOnDispatch
+        <span class="apidocSignatureSpan">(action)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function __invokeOnDispatch(action) {
+  this.__changed = false;
+
+  // Reduce the stream of incoming actions to state, update when necessary.
+  var startingState = this._state;
+  var endingState = this.reduce(startingState, action);
+
+  // This means your ending state should never be undefined.
+  !(endingState !== undefined) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s returned undefined from reduce(...),
+did you forget to return ' + 'state in the default case? (use null if this was intentional)', this.constructor.name) : invariant
+(false) : undefined;
+
+  if (!this.areEqual(startingState, endingState)) {
+    this._state = endingState;
+
+    // `__emitChange()` sets `this.__changed` to true and then the actual
+    // change will be fired from the emitter at the end of the dispatch, this
+    // is required in order to support methods like `hasChanged()`
+    this.__emitChange();
+  }
+
+  if (this.__changed) {
+    this.__emitter.emit(this.__changeEvent);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.__className = this.constructor.name;
+
+  this.__changed = false;
+  this.__changeEvent = 'change';
+  this.__dispatcher = dispatcher;
+  this.__emitter = new EventEmitter();
+  this._dispatchToken = dispatcher.register(function (payload) {
+    _this.<span class="apidocCodeKeywordSpan">__invokeOnDispatch</span>(payload);
+  });
+}
+
+FluxStore.prototype.addListener = function addListener(callback) {
+  return this.__emitter.addListener(this.__changeEvent, callback);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxReduceStore.prototype.areEqual" id="apidoc.element.flux.FluxReduceStore.prototype.areEqual">
+        function <span class="apidocSignatureSpan">flux.FluxReduceStore.prototype.</span>areEqual
+        <span class="apidocSignatureSpan">(one, two)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function areEqual(one, two) {
+  return one === two;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// Reduce the stream of incoming actions to state, update when necessary.
+var startingState = this._state;
+var endingState = this.reduce(startingState, action);
+
+// This means your ending state should never be undefined.
+!(endingState !== undefined) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s returned undefined from
+ reduce(...), did you forget to return ' + 'state in the default case? (use null if this was intentional)', this.
+constructor.name) : invariant(false) : undefined;
+
+if (!this.<span class="apidocCodeKeywordSpan">areEqual</span>(startingState, endingState)) {
+  this._state = endingState;
+
+  // `__emitChange()` sets `this.__changed` to true and then the actual
+  // change will be fired from the emitter at the end of the dispatch, this
+  // is required in order to support methods like `hasChanged()`
+  this.__emitChange();
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxReduceStore.prototype.getInitialState" id="apidoc.element.flux.FluxReduceStore.prototype.getInitialState">
+        function <span class="apidocSignatureSpan">flux.FluxReduceStore.prototype.</span>getInitialState
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getInitialState() {
+  return abstractMethod('FluxReduceStore', 'getInitialState');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var FluxReduceStore = (function (_FluxStore) {
+_inherits(FluxReduceStore, _FluxStore);
+
+function FluxReduceStore(dispatcher) {
+  _classCallCheck(this, FluxReduceStore);
+
+  _FluxStore.call(this, dispatcher);
+  this._state = this.<span class="apidocCodeKeywordSpan">getInitialState</span>();
+}
+
+/**
+ * Getter that exposes the entire state of this store. If your state is not
+ * immutable you should override this and not expose _state directly.
+ */
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxReduceStore.prototype.getState" id="apidoc.element.flux.FluxReduceStore.prototype.getState">
+        function <span class="apidocSignatureSpan">flux.FluxReduceStore.prototype.</span>getState
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getState() {
+  return this._state;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+*   class FooContainer extends Component {
+*     static getStores() {
+*       return [FooStore];
+*     }
+*
+*     static calculateState() {
+*       return {
+*         foo: FooStore.<span class="apidocCodeKeywordSpan">getState</span>(),
+*       };
+*     }
+*
+*     render() {
+*       return &lt;FooView {...this.state} /&gt;;
+*     }
+*   }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxReduceStore.prototype.reduce" id="apidoc.element.flux.FluxReduceStore.prototype.reduce">
+        function <span class="apidocSignatureSpan">flux.FluxReduceStore.prototype.</span>reduce
+        <span class="apidocSignatureSpan">(state, action)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function reduce(state, action) {
+  return abstractMethod('FluxReduceStore', 'reduce');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  };
+
+  FluxReduceStore.prototype.__invokeOnDispatch = function __invokeOnDispatch(action) {
+this.__changed = false;
+
+// Reduce the stream of incoming actions to state, update when necessary.
+var startingState = this._state;
+var endingState = this.<span class="apidocCodeKeywordSpan">reduce</span>(startingState, action);
+
+// This means your ending state should never be undefined.
+!(endingState !== undefined) ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s returned undefined from
+ reduce(...), did you forget to return ' + 'state in the default case? (use null if this was intentional)', this.
+constructor.name) : invariant(false) : undefined;
+
+if (!this.areEqual(startingState, endingState)) {
+  this._state = endingState;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.flux.FluxStore" id="apidoc.module.flux.FluxStore">module flux.FluxStore</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxStore.FluxStore" id="apidoc.element.flux.FluxStore.FluxStore">
+        function <span class="apidocSignatureSpan">flux.</span>FluxStore
+        <span class="apidocSignatureSpan">(dispatcher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FluxStore(dispatcher) {
+  var _this = this;
+
+  _classCallCheck(this, FluxStore);
+
+  this.__className = this.constructor.name;
+
+  this.__changed = false;
+  this.__changeEvent = 'change';
+  this.__dispatcher = dispatcher;
+  this.__emitter = new EventEmitter();
+  this._dispatchToken = dispatcher.register(function (payload) {
+    _this.__invokeOnDispatch(payload);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.flux.FluxStore.prototype" id="apidoc.module.flux.FluxStore.prototype">module flux.FluxStore.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxStore.prototype.__emitChange" id="apidoc.element.flux.FluxStore.prototype.__emitChange">
+        function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>__emitChange
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function __emitChange() {
+  !this.__dispatcher.isDispatching() ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.__emitChange(): Must be invoked
+ while dispatching.', this.__className) : invariant(false) : undefined;
+  this.__changed = true;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+  if (!this.areEqual(startingState, endingState)) {
+    this._state = endingState;
+
+    // `__emitChange()` sets `this.__changed` to true and then the actual
+    // change will be fired from the emitter at the end of the dispatch, this
+    // is required in order to support methods like `hasChanged()`
+    this.<span class="apidocCodeKeywordSpan">__emitChange</span>();
+  }
+
+  if (this.__changed) {
+    this.__emitter.emit(this.__changeEvent);
+  }
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxStore.prototype.__invokeOnDispatch" id="apidoc.element.flux.FluxStore.prototype.__invokeOnDispatch">
+        function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>__invokeOnDispatch
+        <span class="apidocSignatureSpan">(payload)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function __invokeOnDispatch(payload) {
+  this.__changed = false;
+  this.__onDispatch(payload);
+  if (this.__changed) {
+    this.__emitter.emit(this.__changeEvent);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.__className = this.constructor.name;
+
+  this.__changed = false;
+  this.__changeEvent = 'change';
+  this.__dispatcher = dispatcher;
+  this.__emitter = new EventEmitter();
+  this._dispatchToken = dispatcher.register(function (payload) {
+    _this.<span class="apidocCodeKeywordSpan">__invokeOnDispatch</span>(payload);
+  });
+}
+
+FluxStore.prototype.addListener = function addListener(callback) {
+  return this.__emitter.addListener(this.__changeEvent, callback);
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxStore.prototype.__onDispatch" id="apidoc.element.flux.FluxStore.prototype.__onDispatch">
+        function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>__onDispatch
+        <span class="apidocSignatureSpan">(payload)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function __onDispatch(payload) {
+  !false ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s has not overridden FluxStore.__onDispatch(), which is required
+', this.__className) : invariant(false) : undefined;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * This method encapsulates all logic for invoking __onDispatch. It should
+ * be used for things like catching changes and emitting them after the
+ * subclass has handled a payload.
+ */
+
+FluxStore.prototype.__invokeOnDispatch = function __invokeOnDispatch(payload) {
+  this.__changed = false;
+  this.<span class="apidocCodeKeywordSpan">__onDispatch</span>(payload);
+  if (this.__changed) {
+    this.__emitter.emit(this.__changeEvent);
+  }
+};
+
+/**
+ * The callback that will be registered with the dispatcher during
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxStore.prototype.addListener" id="apidoc.element.flux.FluxStore.prototype.addListener">
+        function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>addListener
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function addListener(callback) {
+  return this.__emitter.addListener(this.__changeEvent, callback);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var _this = this;
+
+  _classCallCheck(this, ContainerClass);
+
+  _Base.call(this, props, context);
+  this._fluxContainerSubscriptions = new FluxContainerSubscriptions();
+  this._fluxContainerSubscriptions.setStores(getStores(props));
+  this._fluxContainerSubscriptions.<span class="apidocCodeKeywordSpan">addListener</span>(function () {
+    _this.setState(function (prevState, currentProps) {
+      return getState(prevState, currentProps, context);
+    });
+  });
+  var calculatedState = getState(undefined, props, context);
+  this.state = _extends({}, this.state || {}, calculatedState);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxStore.prototype.getDispatchToken" id="apidoc.element.flux.FluxStore.prototype.getDispatchToken">
+        function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>getDispatchToken
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getDispatchToken() {
+  return this._dispatchToken;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+_classCallCheck(this, FluxStoreGroup);
+
+this._dispatcher = _getUniformDispatcher(stores);
+
+// Precompute store tokens.
+var storeTokens = stores.map(function (store) {
+  return store.<span class="apidocCodeKeywordSpan">getDispatchToken</span>();
+});
+
+// Register with the dispatcher.
+this._dispatchToken = this._dispatcher.register(function (payload) {
+  _this._dispatcher.waitFor(storeTokens);
+  callback();
+});
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxStore.prototype.getDispatcher" id="apidoc.element.flux.FluxStore.prototype.getDispatcher">
+        function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>getDispatcher
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function getDispatcher() {
+  return this.__dispatcher;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  };
+
+  return FluxStoreGroup;
+})();
+
+function _getUniformDispatcher(stores) {
+  !(stores &amp;&amp; stores.length) ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Must provide at
+ least one store to FluxStoreGroup') : invariant(false) : undefined;
+  var dispatcher = stores[0].<span class="apidocCodeKeywordSpan">getDispatcher</span>();
+  if (process.env.NODE_ENV !== 'production') {
+    for (var _iterator = stores, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _iterator[Symbol
+.iterator]();;) {
+var _ref;
+
+if (_isArray) {
+  if (_i &gt;= _iterator.length) break;
+  _ref = _iterator[_i++];
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxStore.prototype.hasChanged" id="apidoc.element.flux.FluxStore.prototype.hasChanged">
+        function <span class="apidocSignatureSpan">flux.FluxStore.prototype.</span>hasChanged
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function hasChanged() {
+  !this.__dispatcher.isDispatching() ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.hasChanged(): Must be invoked
+ while dispatching.', this.__className) : invariant(false) : undefined;
+  return this.__changed;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+/**
+ * Returns whether the store has changed during the most recent dispatch.
+ */
+
+FluxStore.prototype.hasChanged = function hasChanged() {
+  !this.__dispatcher.isDispatching() ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.<span class="
+apidocCodeKeywordSpan">hasChanged</span>(): Must be invoked while dispatching.', this.__className) : invariant(false) : undefined
+;
+  return this.__changed;
+};
+
+FluxStore.prototype.__emitChange = function __emitChange() {
+  !this.__dispatcher.isDispatching() ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.__emitChange():
+Must be invoked while dispatching.', this.__className) : invariant(false) : undefined;
+  this.__changed = true;
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.flux.FluxStoreGroup" id="apidoc.module.flux.FluxStoreGroup">module flux.FluxStoreGroup</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxStoreGroup.FluxStoreGroup" id="apidoc.element.flux.FluxStoreGroup.FluxStoreGroup">
+        function <span class="apidocSignatureSpan">flux.</span>FluxStoreGroup
+        <span class="apidocSignatureSpan">(stores, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FluxStoreGroup(stores, callback) {
+  var _this = this;
+
+  _classCallCheck(this, FluxStoreGroup);
+
+  this._dispatcher = _getUniformDispatcher(stores);
+
+  // Precompute store tokens.
+  var storeTokens = stores.map(function (store) {
+    return store.getDispatchToken();
+  });
+
+  // Register with the dispatcher.
+  this._dispatchToken = this._dispatcher.register(function (payload) {
+    _this._dispatcher.waitFor(storeTokens);
+    callback();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.flux.FluxStoreGroup.prototype" id="apidoc.module.flux.FluxStoreGroup.prototype">module flux.FluxStoreGroup.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.flux.FluxStoreGroup.prototype.release" id="apidoc.element.flux.FluxStoreGroup.prototype.release">
+        function <span class="apidocSignatureSpan">flux.FluxStoreGroup.prototype.</span>release
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function release() {
+  this._dispatcher.unregister(this._dispatchToken);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    });
+    this._tokens = null;
+  }
+};
+
+FluxContainerSubscriptions.prototype._resetStoreGroup = function _resetStoreGroup() {
+  if (this._storeGroup) {
+    this._storeGroup.<span class="apidocCodeKeywordSpan">release</span>();
+    this._storeGroup = null;
+  }
+};
+
+FluxContainerSubscriptions.prototype._resetCallbacks = function _resetCallbacks() {
+  this._callbacks = [];
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.flux.utils" id="apidoc.module.flux.utils">module flux.utils</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.flux.utils.Mixin" id="apidoc.element.flux.utils.Mixin">
+        function <span class="apidocSignatureSpan">flux.utils.</span>Mixin
+        <span class="apidocSignatureSpan">(stores)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FluxMixinLegacy(stores) {
+  var options = arguments.length &lt;= 1 || arguments[1] === undefined ? { withProps: false } : arguments[1];
+
+  stores = stores.filter(function (store) {
+    return !!store;
+  });
+
+  return {
+    getInitialState: function () {
+      enforceInterface(this);
+      return options.withProps ? this.constructor.calculateState(null, this.props) : this.constructor.calculateState(null, undefined
+);
+    },
+
+    componentWillMount: function () {
+      var _this = this;
+
+      // This tracks when any store has changed and we may need to update.
+      var changed = false;
+      var setChanged = function () {
+        changed = true;
+      };
+
+      // This adds subscriptions to stores. When a store changes all we do is
+      // set changed to true.
+      this._fluxMixinSubscriptions = stores.map(function (store) {
+        return store.addListener(setChanged);
+      });
+
+      // This callback is called after the dispatch of the relevant stores. If
+      // any have reported a change we update the state, then reset changed.
+      var callback = function () {
+        if (changed) {
+          _this.setState(function (prevState) {
+            return options.withProps ? _this.constructor.calculateState(prevState, _this.props) : _this.constructor.calculateState
+(prevState, undefined);
+          });
+        }
+        changed = false;
+      };
+      this._fluxMixinStoreGroup = new FluxStoreGroup(stores, callback);
+    },
+
+    componentWillUnmount: function () {
+      this._fluxMixinStoreGroup.release();
+      for (var _iterator = this._fluxMixinSubscriptions, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator
+ : _iterator[Symbol.iterator]();;) {
+        var _ref;
+
+        if (_isArray) {
+          if (_i &gt;= _iterator.length) break;
+          _ref = _iterator[_i++];
+        } else {
+          _i = _iterator.next();
+          if (_i.done) break;
+          _ref = _i.value;
+        }
+
+        var subscription = _ref;
+
+        subscription.remove();
+      }
+      this._fluxMixinSubscriptions = [];
+    }
+  };
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.utils.ReduceStore" id="apidoc.element.flux.utils.ReduceStore">
+        function <span class="apidocSignatureSpan">flux.utils.</span>ReduceStore
+        <span class="apidocSignatureSpan">(dispatcher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FluxReduceStore(dispatcher) {
+  _classCallCheck(this, FluxReduceStore);
+
+  _FluxStore.call(this, dispatcher);
+  this._state = this.getInitialState();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.flux.utils.Store" id="apidoc.element.flux.utils.Store">
+        function <span class="apidocSignatureSpan">flux.utils.</span>Store
+        <span class="apidocSignatureSpan">(dispatcher)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function FluxStore(dispatcher) {
+  var _this = this;
+
+  _classCallCheck(this, FluxStore);
+
+  this.__className = this.constructor.name;
+
+  this.__changed = false;
+  this.__changeEvent = 'change';
+  this.__dispatcher = dispatcher;
+  this.__emitter = new EventEmitter();
+  this._dispatchToken = dispatcher.register(function (payload) {
+    _this.__invokeOnDispatch(payload);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
