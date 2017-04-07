@@ -1,33 +1,33 @@
 <svg height="478" width="720" xmlns="http://www.w3.org/2000/svg">
 <rect height="478" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">  0.  2017-04-07 20:38:01 +0000   300060 bytes  .</tspan>
-<tspan x="10" y="42">  1.  2017-04-07 20:38:01 +0000     1408 bytes  CHANGELOG.md</tspan>
-<tspan x="10" y="58">  2.  2017-04-07 20:38:01 +0000     1525 bytes  LICENSE</tspan>
-<tspan x="10" y="74">  3.  2017-04-07 20:38:01 +0000     1975 bytes  PATENTS</tspan>
-<tspan x="10" y="90">  4.  2017-04-07 20:38:01 +0000     3223 bytes  README.md</tspan>
-<tspan x="10" y="106">  5.  2017-04-07 20:38:01 +0000    11160 bytes  dist/Flux.js</tspan>
-<tspan x="10" y="122">  6.  2017-04-07 20:38:01 +0000     2526 bytes  dist/Flux.min.js</tspan>
-<tspan x="10" y="138">  7.  2017-04-07 20:38:01 +0000   180552 bytes  dist/FluxUtils.js</tspan>
-<tspan x="10" y="154">  8.  2017-04-07 20:38:01 +0000    30971 bytes  dist/FluxUtils.min.js</tspan>
-<tspan x="10" y="170">  9.  2017-04-07 20:38:01 +0000      364 bytes  index.js</tspan>
-<tspan x="10" y="186"> 10.  2017-04-07 20:38:01 +0000     7277 bytes  lib/Dispatcher.js</tspan>
-<tspan x="10" y="202"> 11.  2017-04-07 20:38:01 +0000     6816 bytes  lib/Dispatcher.js.flow</tspan>
-<tspan x="10" y="218"> 12.  2017-04-07 20:38:01 +0000     8810 bytes  lib/FluxContainer.js</tspan>
-<tspan x="10" y="234"> 13.  2017-04-07 20:38:01 +0000     7571 bytes  lib/FluxContainer.js.flow</tspan>
-<tspan x="10" y="250"> 14.  2017-04-07 20:38:01 +0000     2870 bytes  lib/FluxContainerSubscriptions.js</tspan>
-<tspan x="10" y="266"> 15.  2017-04-07 20:38:01 +0000     2123 bytes  lib/FluxContainerSubscriptions.js.flow</tspan>
-<tspan x="10" y="282"> 16.  2017-04-07 20:38:01 +0000     3941 bytes  lib/FluxMixinLegacy.js</tspan>
-<tspan x="10" y="298"> 17.  2017-04-07 20:38:01 +0000     3464 bytes  lib/FluxMixinLegacy.js.flow</tspan>
-<tspan x="10" y="314"> 18.  2017-04-07 20:38:01 +0000     4082 bytes  lib/FluxReduceStore.js</tspan>
-<tspan x="10" y="330"> 19.  2017-04-07 20:38:01 +0000     3128 bytes  lib/FluxReduceStore.js.flow</tspan>
-<tspan x="10" y="346"> 20.  2017-04-07 20:38:01 +0000     3518 bytes  lib/FluxStore.js</tspan>
-<tspan x="10" y="362"> 21.  2017-04-07 20:38:01 +0000     3046 bytes  lib/FluxStore.js.flow</tspan>
-<tspan x="10" y="378"> 22.  2017-04-07 20:38:01 +0000     2331 bytes  lib/FluxStoreGroup.js</tspan>
-<tspan x="10" y="394"> 23.  2017-04-07 20:38:01 +0000     1690 bytes  lib/FluxStoreGroup.js.flow</tspan>
-<tspan x="10" y="410"> 24.  2017-04-07 20:38:01 +0000      688 bytes  lib/abstractMethod.js</tspan>
-<tspan x="10" y="426"> 25.  2017-04-07 20:38:01 +0000      651 bytes  lib/abstractMethod.js.flow</tspan>
-<tspan x="10" y="442"> 26.  2017-04-07 20:38:01 +0000     3813 bytes  package.json</tspan>
-<tspan x="10" y="458"> 27.  2017-04-07 20:38:01 +0000      537 bytes  utils.js</tspan>
+<tspan x="10" y="26">  0.  2017-04-07 20:39:30 +0000   300060 bytes  .</tspan>
+<tspan x="10" y="42">  1.  2017-04-07 20:39:30 +0000     1408 bytes  CHANGELOG.md</tspan>
+<tspan x="10" y="58">  2.  2017-04-07 20:39:30 +0000     1525 bytes  LICENSE</tspan>
+<tspan x="10" y="74">  3.  2017-04-07 20:39:30 +0000     1975 bytes  PATENTS</tspan>
+<tspan x="10" y="90">  4.  2017-04-07 20:39:30 +0000     3223 bytes  README.md</tspan>
+<tspan x="10" y="106">  5.  2017-04-07 20:39:30 +0000    11160 bytes  dist/Flux.js</tspan>
+<tspan x="10" y="122">  6.  2017-04-07 20:39:30 +0000     2526 bytes  dist/Flux.min.js</tspan>
+<tspan x="10" y="138">  7.  2017-04-07 20:39:30 +0000   180552 bytes  dist/FluxUtils.js</tspan>
+<tspan x="10" y="154">  8.  2017-04-07 20:39:30 +0000    30971 bytes  dist/FluxUtils.min.js</tspan>
+<tspan x="10" y="170">  9.  2017-04-07 20:39:30 +0000      364 bytes  index.js</tspan>
+<tspan x="10" y="186"> 10.  2017-04-07 20:39:30 +0000     7277 bytes  lib/Dispatcher.js</tspan>
+<tspan x="10" y="202"> 11.  2017-04-07 20:39:30 +0000     6816 bytes  lib/Dispatcher.js.flow</tspan>
+<tspan x="10" y="218"> 12.  2017-04-07 20:39:30 +0000     8810 bytes  lib/FluxContainer.js</tspan>
+<tspan x="10" y="234"> 13.  2017-04-07 20:39:30 +0000     7571 bytes  lib/FluxContainer.js.flow</tspan>
+<tspan x="10" y="250"> 14.  2017-04-07 20:39:30 +0000     2870 bytes  lib/FluxContainerSubscriptions.js</tspan>
+<tspan x="10" y="266"> 15.  2017-04-07 20:39:30 +0000     2123 bytes  lib/FluxContainerSubscriptions.js.flow</tspan>
+<tspan x="10" y="282"> 16.  2017-04-07 20:39:30 +0000     3941 bytes  lib/FluxMixinLegacy.js</tspan>
+<tspan x="10" y="298"> 17.  2017-04-07 20:39:30 +0000     3464 bytes  lib/FluxMixinLegacy.js.flow</tspan>
+<tspan x="10" y="314"> 18.  2017-04-07 20:39:30 +0000     4082 bytes  lib/FluxReduceStore.js</tspan>
+<tspan x="10" y="330"> 19.  2017-04-07 20:39:30 +0000     3128 bytes  lib/FluxReduceStore.js.flow</tspan>
+<tspan x="10" y="346"> 20.  2017-04-07 20:39:30 +0000     3518 bytes  lib/FluxStore.js</tspan>
+<tspan x="10" y="362"> 21.  2017-04-07 20:39:30 +0000     3046 bytes  lib/FluxStore.js.flow</tspan>
+<tspan x="10" y="378"> 22.  2017-04-07 20:39:30 +0000     2331 bytes  lib/FluxStoreGroup.js</tspan>
+<tspan x="10" y="394"> 23.  2017-04-07 20:39:30 +0000     1690 bytes  lib/FluxStoreGroup.js.flow</tspan>
+<tspan x="10" y="410"> 24.  2017-04-07 20:39:30 +0000      688 bytes  lib/abstractMethod.js</tspan>
+<tspan x="10" y="426"> 25.  2017-04-07 20:39:30 +0000      651 bytes  lib/abstractMethod.js.flow</tspan>
+<tspan x="10" y="442"> 26.  2017-04-07 20:39:30 +0000     3813 bytes  package.json</tspan>
+<tspan x="10" y="458"> 27.  2017-04-07 20:39:30 +0000      537 bytes  utils.js</tspan>
 </text>
 </svg>
