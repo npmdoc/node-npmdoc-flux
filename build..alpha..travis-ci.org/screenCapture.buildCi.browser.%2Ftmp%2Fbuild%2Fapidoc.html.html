@@ -822,20 +822,20 @@ Must be invoked while dispatching.', this.__className) : invariant(false) : unde
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-  this.__className = this.constructor.name;
+  // Precompute store tokens.
+  var storeTokens = stores.map(function (store) {
+    return store.getDispatchToken();
+  });
 
-  this.__changed = false;
-  this.__changeEvent = 'change';
-  this.__dispatcher = dispatcher;
-  this.__emitter = new EventEmitter();
-  this._dispatchToken = dispatcher.<span class="apidocCodeKeywordSpan">register</span>(function (payload) {
-    _this.__invokeOnDispatch(payload);
+  // Register with the dispatcher.
+  this._dispatchToken = this._dispatcher.<span class="apidocCodeKeywordSpan">register</span>(function (payload) {
+    _this._dispatcher.waitFor(storeTokens);
+    callback();
   });
 }
 
-FluxStore.prototype.addListener = function addListener(callback) {
-  return this.__emitter.addListener(this.__changeEvent, callback);
-};
+FluxStoreGroup.prototype.release = function release() {
+  this._dispatcher.unregister(this._dispatchToken);
 ...</pre></li>
     </ul>
 
